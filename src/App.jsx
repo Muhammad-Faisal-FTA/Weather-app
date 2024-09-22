@@ -16,6 +16,7 @@ function App() {
        .then((rt)=>rt.json())
        .then((fr)=>{
          if(fr.cod==="404"){
+          console.log(fr.cod)
           setLoading(false)
           alert("City noy found..!")
            setEeather(undefined)
