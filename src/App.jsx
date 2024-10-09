@@ -24,6 +24,7 @@ function App() {
            setEeather(fr)
            setTimeout(()=>{
               setLoading(false)
+              setCity('')
              },100)
             }
           })
