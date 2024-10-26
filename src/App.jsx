@@ -67,7 +67,8 @@ function App() {
            <p className='capitalize px-3 mt-3 text-[0.999rem] font-[700] flex justify-between items-center'>Description :  <span className=' font-[600]'>{fweather.weather[0].description}</span></p>  <hr /> 
            <p className='capitalize px-3 mt-3 text-[0.999rem] font-[700] flex justify-between items-center'>Visibility range:  <span className=' font-[600] lowercase'>{fweather.visibility} meters</span></p>        <hr />  
            {/* <p className='capitalize px-3 text-[0.999rem] font-[700] flex justify-between items-center'>Sea Level:  <span className=' font-[600] lowercase'>{fweather.main.sea_level}</span></p>  <hr />   */}
-           <marquee className='mt-4 text-[#6b4b10] font-semibold' behavior="" loop="ininite" direction="left">This is simple weather app project to provide current weather information.</marquee>
+           <marquee className='mt-4 text-[#6b4b10] font-semibold' behavior="scroll" loop="ininite" direction="left">This is simple weather app project to provide current weather information.</marquee>
+           {/* <marquee className='mt-4 text-[#6b4b10] font-semibold' behavior="" loop="ininite" direction="left">This is simple weather app project to provide current weather information.</marquee> */}
            </>
            :
            "Enter  place | Data not found"
