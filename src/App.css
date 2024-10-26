@@ -1,6 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.App{
-    background-color: brown;
+
+.marquee {
+    text-align: center;
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    0% {color: red; text-align: center; }
+    50% {color: green;text-align: center;}
+    99% { text-decoration: double; text-align: center;}
+    99% { color: red; text-align: center;}
 }
