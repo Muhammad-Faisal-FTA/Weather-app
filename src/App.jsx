@@ -3,6 +3,8 @@ import loder from './loder.gif'
 import './App.css';
 
 function App() {
+  const apiKey = process.env.REACT_APP_API_KEY;
+
   let [city, setCity] = useState('')
   let [fweather, setEeather] = useState()
   let [loading, setLoading] = useState(false)
@@ -12,7 +14,7 @@ function App() {
       setLoading(false)
       alert('Plese enter the place name')
     }else{
-      fetch( `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=751d66e130befad396405dc13796a57c&units=metric` )
+      fetch( `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric` )
        .then((rt)=>rt.json())
        .then((fr)=>{
          if(fr.cod==="404"){
