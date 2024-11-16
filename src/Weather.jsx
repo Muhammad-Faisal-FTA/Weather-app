@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react';
 import loder from './loder.gif'
 import './App.css';
+// import './styles.css';
+
 
 
 const Weather = () => {
@@ -70,7 +72,7 @@ const Weather = () => {
            <p className='capitalize px-3 mt-3 text-[0.999rem] font-[700] flex justify-between items-center'>Description :  <span className=' font-[600]'>{fweather.weather[0].description}</span></p>  <hr /> 
            <p className='capitalize px-3 mt-3 text-[0.999rem] font-[700] flex justify-between items-center'>Visibility range:  <span className=' font-[600] lowercase'>{fweather.visibility} meters</span></p>        <hr />  
            {/* <p className='capitalize px-3 text-[0.999rem] font-[700] flex justify-between items-center'>Sea Level:  <span className=' font-[600] lowercase'>{fweather.main.sea_level}</span></p>  <hr />   */}
-           <h2 className='marquee mt-4 text-[#6b4b10] font-semibold text-red' behavior="" loop="ininite" direction="left">This is simple weather app project to provide current weather information.</h2>
+           <h2 className='marquee mt-4 text-[#6b4b10] font-semibold' behavior="" loop="ininite" direction="left">This is simple weather app project to provide current weather information.</h2>
            </>
            :
            " Enter  place | Data not found ... "
