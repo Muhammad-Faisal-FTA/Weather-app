@@ -1,44 +1,46 @@
-import React from 'react';
+import React from 'react'
 import { useState } from 'react';
 import loder from './loder.gif'
 import './App.css';
 
-function App() {
-  const apiKey = process.env.REACT_APP_API_KEY;
 
-  let [city, setCity] = useState('')
-  let [fweather, setEeather] = useState()
-  let [loading, setLoading] = useState(false)
-  let checkData = ()=>{
-    setLoading(true)
-    if(city === ''){
-      setLoading(false)
-      alert('Plese enter the place name')
-    }else{
-      fetch( `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric` )
-       .then((rt)=>rt.json())
-       .then((fr)=>{
-         if(fr.cod==="404"){
-          console.log(fr.cod)
-          setLoading(false)
-          alert("City noy found..!")
-           setEeather(undefined)
-         }else{
-           setEeather(fr)
-           setTimeout(()=>{
-              setLoading(false)
-              setCity('')
-             },100)
-            }
-          })
+const Weather = () => {
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const apiUrl = process.env.REACT_APP_API_URL;
+  
+    let [city, setCity] = useState('')
+    let [fweather, setEeather] = useState()
+    let [loading, setLoading] = useState(false)
+    let checkData = ()=>{
+      setLoading(true)
+      if(city === ''){
+        setLoading(false)
+        alert('Plese enter the place name')
+      }else{
+        fetch( `${apiUrl}q=${city}&appid=${apiKey}&units=metric` )
+         .then((rt)=>rt.json())
+         .then((fr)=>{
+           if(fr.cod==="404"){
+            console.log(fr.cod)
+            setLoading(false)
+            alert("City noy found..!")
+             setEeather(undefined)
+           }else{
+             setEeather(fr)
+             setTimeout(()=>{
+                setLoading(false)
+                setCity('')
+               },100)
+              }
+            })
+          }
         }
-      }
-      const handleEnterPress = (event) => {
-        if (event.key === 'Enter') {
-          // alert("Enter key was pressed!", city);
-          checkData();
-          // Add your desired functionality here
-        }}
+        const handleEnterPress = (event) => {
+          if (event.key === 'Enter') {
+            // alert("Enter key was pressed!", city);
+            checkData();
+            // Add your desired functionality here
+          }}
   return (
     <div className="w-full h-full mt-6 ">
       <h1 className='text-[2.5rem] font-bold text-[black] text-center '>Simple Waether App</h1>
@@ -53,7 +55,7 @@ function App() {
       <div className='flex justify-center items-center relative  mt-[3rem]'>
 
         <div className='w-[25rem] p-3 rounded-[0.3rem] relative bg-white'>
-          <img src={loder} alt="hjhj" className={`ml-[7rem] absolute  ${loading? '': 'hidden'}`} />   
+          <img src={loder} alt="Loding..." className={`ml-[7rem] absolute  ${loading? '': 'hidden'}`} />   
           {fweather !== undefined? 
            <>
            <h2 className='text-[1.5rem] p-1 font-bold text-[black] text-center'>{fweather.name} <span className='font-[600] text-[1rem]'>{fweather.sys.country}</span></h2>
@@ -68,17 +70,17 @@ function App() {
            <p className='capitalize px-3 mt-3 text-[0.999rem] font-[700] flex justify-between items-center'>Description :  <span className=' font-[600]'>{fweather.weather[0].description}</span></p>  <hr /> 
            <p className='capitalize px-3 mt-3 text-[0.999rem] font-[700] flex justify-between items-center'>Visibility range:  <span className=' font-[600] lowercase'>{fweather.visibility} meters</span></p>        <hr />  
            {/* <p className='capitalize px-3 text-[0.999rem] font-[700] flex justify-between items-center'>Sea Level:  <span className=' font-[600] lowercase'>{fweather.main.sea_level}</span></p>  <hr />   */}
-           <h2 className='marquee text-red-600 mt-4 text-[#6b4b10] font-semibold' behavior="" loop="ininite" direction="left">This is simple weather app project to provide current weather information.</h2>
+           <h2 className='marquee mt-4 text-[#6b4b10] font-semibold text-red' behavior="" loop="ininite" direction="left">This is simple weather app project to provide current weather information.</h2>
            </>
            :
-           " Enter  place | Data not found "
+           " Enter  place | Data not found ... "
           }
            
         </div>
       </div>
        </div>
 
-  );
+  )
 }
 
-export default App;
+export default Weather
