@@ -7,7 +7,7 @@ import Weather from './Weather';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode className>
-    <Weather className=""/>
+    <Weather className="text-orange-700"/>
   </React.StrictMode>
 );
 
