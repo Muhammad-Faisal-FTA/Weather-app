@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import New from './New';
 import reportWebVitals from './reportWebVitals';
 import Weather from './Weather';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode className>
-    <Weather className="text-orange-700"/>
+    <Weather />
   </React.StrictMode>
 );
 

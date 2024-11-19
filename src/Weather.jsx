@@ -46,7 +46,6 @@ const Weather = () => {
           }}
   return (
     <div className="w-full h-full mt-6">
-      <New />
       <h1 className='text-[2.5rem] font-bold text-[black] text-center '>Simple Waether App</h1>
 
       <div className='w-full flex  justify-around items-center  mt-[3rem]'>
