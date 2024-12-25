@@ -15,6 +15,7 @@ const Weather = () => {
     let [city, setCity] = useState('')
     let [fweather, setEeather] = useState()
     let [loading, setLoading] = useState(false)
+    let [s404, setS404]=useState("");
     let checkData = ()=>{
       setLoading(true)
       if(city === ''){
@@ -25,9 +26,8 @@ const Weather = () => {
          .then((rt)=>rt.json())
          .then((fr)=>{
            if(fr.cod==="404"){
-            console.log(fr.cod)
+            setS404("  Invalid name | Format error | 404 | Not found");
             setLoading(false)
-            alert("City noy found..!")
              setEeather(undefined)
            }else{
              setEeather(fr)
@@ -66,7 +66,7 @@ const Weather = () => {
            <h2 className='text-[1rem] px-3 mt-2 font-[700] flex justify-between items-center'>Temperature : <span className='ml-[] font-[600]'>{fweather.main.temp} &#176;C</span></h2>  
            <h2 className='text-[1rem] px-3 mt-2 font-[700] flex justify-between items-center'>Temperature feels : <span className='ml-[] font-[600]'>{fweather.main.feels_like} &#176;C</span></h2>  
            {/* <h2>Weather of {city}</h2> */}
-           {console.log(fweather)}
+           {/* {console.log(fweather)} */}
            <img src={`${discpImg}/img/w/${fweather.weather[0].icon}.png`} alt="" className='px-[9rem]  ' />
            <p className='capitalize px-3 mt-3 font-[700] text-[1rem] flex justify-between items-center'>Humidity : <span className='font-[600]'>{fweather.main.humidity}%</span></p>                  <hr />
            <p className='capitalize px-3 mt-3 text-[0.999rem] font-[700] flex justify-between items-center'>Wind speed :  <span className=' font-[600] lowercase'>{fweather.wind.speed} ms <sup>-1</sup> </span></p>                <hr />  
@@ -77,7 +77,7 @@ const Weather = () => {
            <marquee className=' mt-4 text-[#6b4b10] font-semibold' behavior="" loop="ininite" direction="left">This is simple weather app project to provide current weather information. Enter your city name see the weather condition.</marquee>
            </>
            :
-           " Enter  place | Data not found ... "
+            `Enter  place | Please try  with correct spellins ~ format\n ${s404} `
           }
            
         </div>
