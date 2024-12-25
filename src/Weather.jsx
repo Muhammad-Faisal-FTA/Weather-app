@@ -10,7 +10,7 @@ import './App.css';
 const Weather = () => {
     const apiKey = process.env.REACT_APP_API_KEY;
     const apiUrl = process.env.REACT_APP_API_URL;
-    const discpImg = process.env.REACT_APP_WTR_IMG
+    const discpImg = process.env.REACT_APP_WTR_IMG;
   
     let [city, setCity] = useState('')
     let [fweather, setEeather] = useState()
