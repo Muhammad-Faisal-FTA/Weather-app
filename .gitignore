@@ -13,7 +13,6 @@
 
 # misc
 .DS_Store
-.env.local
 .env.development.local
 .env.test.local
 .env.production.local
@@ -23,7 +22,10 @@ yarn-debug.log*
 yarn-error.log*
 
 # Related
-.env
 New.js
 
 
+config.bat
+temp_auto_push.bat
+temp_interactive_push.bat
+branch_structure.json
