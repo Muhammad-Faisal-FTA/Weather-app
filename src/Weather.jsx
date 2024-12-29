@@ -10,7 +10,7 @@ import './App.css';
 const Weather = () => {
     const apiKey = process.env.REACT_APP_API_KEY;
     const apiUrl = process.env.REACT_APP_API_URL;
-    const discpImg = process.env.REACT_APP_WTR_IMG;
+    // const discpImg = process.env.REACT_APP_WTR_IMG;
   
     let [city, setCity] = useState('')
     let [fweather, setEeather] = useState()
@@ -67,7 +67,7 @@ const Weather = () => {
            <h2 className='text-[1rem] px-3 mt-2 font-[700] flex justify-between items-center'>Temperature feels : <span className='ml-[] font-[600]'>{fweather.main.feels_like} &#176;C</span></h2>  
            {/* <h2>Weather of {city}</h2> */}
            {/* {console.log(fweather)} */}
-           <img src={`${discpImg}${fweather.weather[0].icon}.png`} alt="" className='px-[9rem]  ' />
+           {/* <img src={`${discpImg}${fweather.weather[0].icon}.png`} alt="" className='px-[9rem]  ' /> */}
            <p className='capitalize px-3 mt-3 font-[700] text-[1rem] flex justify-between items-center'>Humidity : <span className='font-[600]'>{fweather.main.humidity}%</span></p>                  <hr />
            <p className='capitalize px-3 mt-3 text-[0.999rem] font-[700] flex justify-between items-center'>Wind speed :  <span className=' font-[600] lowercase'>{fweather.wind.speed} ms <sup>-1</sup> </span></p>                <hr />  
            <p className='capitalize px-3 mt-3 text-[0.999rem] font-[700] flex justify-between items-center'>Pressure :  <span className=' font-[600] lowercase'>{fweather.main.pressure} mb</span></p>  <hr />  
